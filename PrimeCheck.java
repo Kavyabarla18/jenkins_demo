@@ -1,10 +1,18 @@
-import java.util.Scanner;
-
 public class PrimeCheck {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int num = scanner.nextInt();
+        if (args.length == 0) {
+            System.out.println("Please provide a number as a command line argument.");
+            System.exit(1);
+        }
+        
+        int num = 0;
+        try {
+            num = Integer.parseInt(args[0]);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid integer.");
+            System.exit(1);
+        }
+
         boolean isPrime = true;
 
         if (num <= 1) isPrime = false;
